@@ -1,15 +1,9 @@
 
-### Version 2.0.6 - April 23, 2018 Beta
-* Correction of the warning in http.error
-
-### Version 2.0.5 - April 18, 2018
-* Fixed a refresh bug by object
-
-### Version 2.0.4 - 14 April 2018
+### Version 2.0.4 - April 14, 2018
 * Refresh management by object:
     * Refreshing by object complements the global one in the plugin configuration
-    * Refreshing by object has an additional value * default *, in which case the global value is taken into account
-    * Each MiFlora has its refresh rate which replaces the global value when it is not at the value * default *
+    * Refreshing by object has an additional value *default*, in which case the global value is taken into account
+    * Each MiFlora has its refresh rate which replaces the global value when it is not at the value *default*
     * In debug mode, all objects are read every minute regardless of these values
 
 ### Version 2.0.3 - April 6, 2018
@@ -34,14 +28,14 @@
 ### Version 1.2.5: May 31, 2017
 
 * fixed a bug on fertility (recovery of 2 bytes instead of one)
-* Changing the icon to respect the Jeedom chart
+* Changing the icon to match Jeedom chart
 
 ### Version 1.2.4: March 18, 2017
 
-* Inversions of the exchange log for more readability
+* Inversions of the change log for more readability
 * Firmware Management 2.9.2 - Inversion of Test Only 2.6.2 is managed with the old method
 
-### Version 1.2.3: January 16 in Beta
+### Version 1.2.3: January 16
 
 * Improved management of reading errors
 

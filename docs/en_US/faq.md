@@ -8,7 +8,7 @@ but needs more monitoring and maintenance, mostly demons and dependencies when u
 ### Does this plugin rely on third-party APIs?
 
 > The plugin uses Bluetooth to retrieve information from MiFlora.
-You need to install Bluetooth and make sure that `gatttool -b macAddMiFlora --char-read -a 0x35` is running on the target device.
+You must install Bluetooth and make sure that `gatttool -b macAddMiFlora --char-read -a 0x35` is running on the target device.
 
 ### Does this plugin monopolize Bluetooth?
 

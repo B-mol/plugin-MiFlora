@@ -39,4 +39,15 @@ core/class/MiFlora.class.new.php
 
 core/class/MiFlora.class.master.php
 
-.idea/jeedom_MiFlora.iml
+venv/*
+
+CONTRIBUTING.md
+
+dist/MiFlora-2.1.tar.gz
+
+MiFlora.egg-info/
+plugin-MiFlora/
+
+setup.py
+
+tox.ini
