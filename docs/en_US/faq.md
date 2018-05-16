@@ -8,7 +8,7 @@ but needs more monitoring and maintenance, mostly demons and dependencies when u
 ### Does this plugin rely on third-party APIs?
 
 > The plugin uses Bluetooth to retrieve information from MiFlora.
-You must install Bluetooth and make sure that `gatttool -b macAddMiFlora --char-read -a 0x35` is running on the target device.
+You need to install Bluetooth and make sure that `gatttool -b macAddMiFlora --char-read -a 0x35` is running on the target device.
 
 ### Does this plugin monopolize Bluetooth?
 
@@ -47,12 +47,13 @@ BlueZ is incompatible with blueman (sudo apt-get remove blueman)
 
 ### The plugin works well: what can I do with it?
 
-> Humidity, fertility, brightness and temperature values ​​are accessible from scenarios.
+> Les valeurs d'humidité, de fertilité, de luminosité et de températures sont accessible depuis des scénarios.
 
-> It is possible to read these values, to compare them to a threshold and to warn if the threshold is exceeded, for example to water a plant.
+> Il est possible de lire ces valeurs, de les comparer à un seuil et d'alerter en cas de dépassement du seuil, par exemple pour arroser une plante.
 
-> Alerts can be given by text to speech (plugin playTTS for example), by notification on smartphone (pushbullet plugin), by SMS ...
+> Les alertes peuvent être données par du 'text to speech' (plugin playTTS par exemple), par notification sur smartphone (plugin pushbullet), par SMS ...
 
-> Thresholds can be found using Xiaomi or Parrot database or a threshold between 14 and 16 seems to be suitable for a majority of houseplants.
+> Les seuils peuvent être trouvés en utilisant la base de plantes de Xiaomi ou celle de Parrot à défaut un seuil entre 14 et 16 semble convenir à une majorité de plantes d'intérieur.
 
-> It is also possible to regulate an automatic watering, MiFlora seems to be resistant to bad weather
+> Il est aussi possible de réguler un arrosage automatique, MiFlora semble bien résister aux intempéries
+

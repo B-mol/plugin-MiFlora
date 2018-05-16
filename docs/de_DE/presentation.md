@@ -2,7 +2,7 @@
 
 Plugin permettant de récupérer les informations des Xiaomi Plants ou MiFlora ainsi que des Parrot flower power et Parrot flower pot
 
-Xiaomi Plants are Xiaomi brand Bluetooth sticks for measuring the hygrometry, temperature, light and fertilizer of a plant. There is no need for anything other than a Bluetooth connection, including via a remote device.
+Les Xiaomi Plants sont des sticks Bluetooth de la marque Xiaomi permettant de mesurer l'hygrométrie, la température, la lumière, l'engrais d'une plante. Nul besoin d'autre chose qu'une connexion Bluetooth, y compris via un appareil déporté.
 
 Le Parrots flower est la version originale de Parrot du stick MiFlora, le Parrot Pot est un pot de fleurs avec les fonctionalités du Parrot flower.
 
