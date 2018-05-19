@@ -1,6 +1,6 @@
 # Changelog
 
-### Version 3.0.0 - 14 Mai 2018 Bêta
+### Version 3.0.0 - May 2018 - under development
 * Management of remote antennas
    - Possibility of creating antennas
    - Possibility for each object to specify by which antenna it will be read
@@ -9,9 +9,7 @@
         - it may be necessary to disable it and then activate it to update the new fields, the data is retained during this process.
 * Health tab allowing to see in a synthetic way the state of MiFlora.
 * Adding default values ​​for the low battery alert.
-* Ajout de la fonctionnalité refresh et passage du minimum de 5 à 15 minutes.
-    - Cette fonctionnalité est utilisable depuis un scénario ou en cliquant sur le widget en mode desktop.
-    - Attention de bien mettre une fréquence d'au moins 15 minutes pour vos objets existants.
-
-* Gestion du Parrot flower.
-
+* Manage the Parrot flower in a dedicated Python script for future integration into the plugin.
+* Added the refresh functionality and transition from the minimum of 5 to 15 minutes.
+    - This feature can be used from a scenario or by clicking on the widget in desktop mode.
+    - Be careful to put a frequency of at least 15 minutes for your existing objects.

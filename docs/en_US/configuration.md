@@ -27,7 +27,7 @@ The reading frequency of the data is by default that of the global configuration
 
 ### Remote use
 
-Il est possible que Jeedom pilote des appareils déportés qui se chargeront de la communication Bluetooth avec les MiFlora.
+It is possible that Jeedom pilots a remote device that will handle Bluetooth communication with MiFlora.
 
 In this case, you must enter the SSH connection parameters between Jeedom and this remote device:
 

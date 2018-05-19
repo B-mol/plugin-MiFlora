@@ -1,23 +1,18 @@
 # Description
 
-Plugin permettant de récupérer les informations des Xiaomi Plants ou MiFlora ainsi que des Parrot flower power et Parrot flower pot
+Plugin to retrieve information from Xiaomi Plants or MiFlora.
 
 Xiaomi Plants are Xiaomi brand Bluetooth sticks for measuring the hygrometry, temperature, light and fertilizer of a plant. There is no need for anything other than a Bluetooth connection, including via a remote device.
 
-Le Parrots flower est la version originale de Parrot du stick MiFlora, le Parrot Pot est un pot de fleurs avec les fonctionalités du Parrot flower.
 
 # Market
 
-Retrouvez le sur le Market Jeedom [ici](https://www.jeedom.com/market/index.php?v=d&p=market&type=plugin&&name=MiFlora)
+Find it on the Jeedom Market [here](https://www.jeedom.com/market/index.php?v=d&p=market&type=plugin&&name=MiFlora)
 
-# Prévisualisation
+# Preview
 
 ![scrennshot1](../images/MiFlora-Screenshot1.png)
 
 # Forum
 
-Lien vers le forum [ici](https://www.jeedom.com/forum/viewtopic.php?t=22870)
-
-# Chat
-
-Lien vers le chat [ici](https://gitter.im/NextDom/plugin-MiFlora)
+Link to the forum [here](https://www.jeedom.com/forum/viewtopic.php?t=22870)
