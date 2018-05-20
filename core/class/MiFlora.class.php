@@ -153,7 +153,7 @@ class MiFlora extends eqLogic
                  if ($rssi == -1000 ) {
                     log::add('MiFlora','warning','attention pas de rssi pour ' . $mi_flora->getHumanName(false, false));
                  } else {
-                     log::add('MiFlora','info','mise a jour du  rssi pour ' . $mi_flora->getHumanName(false, false) . 'OK rssi ' .$rssi ."antenne " .$mi_flora->getConfiguration('real_antenna')) ;
+                     log::add('MiFlora','info','mise a jour du  rssi pour ' . $mi_flora->getHumanName(false, false) . ' OK rssi ' .$rssi ." antenne " .$mi_flora->getConfiguration('real_antenna')) ;
                     $mi_flora->save();
                     // save new conf
 
