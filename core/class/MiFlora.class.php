@@ -305,7 +305,7 @@ class MiFlora extends eqLogic
             if ($resultStatic == true) {
                 $mi_flora->updateStaticData($macAdd, $battery, $FirmwareVersion, $MiFloraName);
                 if (config::byKey('battery::danger', 'core') != '') {
-                    log::add('MiFlora', 'error', 'Global Battery setting:'. config::byKey('battery::danger', 'core'));
+                    log::add('MiFlora', 'debug', 'Global Battery setting:'. config::byKey('battery::danger', 'core'));
                     if ($mi_flora->getConfiguration('battery_danger_threshold') != '') {
                         if ($battery < $mi_flora->getConfiguration('battery_danger_threshold')) {
                             log::add('MiFlora', 'error', 'Error: Batterie faible - ' . $battery . ' ' . $mi_flora->getHumanName(false, false));
@@ -408,9 +408,18 @@ class MiFlora extends eqLogic
             $mi_flora->updateJeedom($macAdd, $temperature, $moisture, $fertility, $lux );
 
             // regarde si humidité minimum
-            $old_Hummin = $mi_flora->getStatus('HumMin') ;
+            if ($mi_flora->getConfiguration ('HumMin_init') != "") {
+                $old_Hummin = $mi_flora->getStatus('HumMin') ;
+            }else{
+                $mi_flora->setStatus('HumMin', 0);
+                $mi_flora->update_min_hum_Jeedom(0);
+                $mi_flora->setConfiguration('HumMin_init',1);
+                $old_Hummin= 0 ;
+            }
 
+            log::add('MiFlora', 'debug','valeur commande HumMin ' .$old_Hummin );
             $hum_min = $mi_flora->getConfiguration ('HumMin');
+
             if ($hum_min != 0) {
                 log::add('MiFlora', 'debug', 'humidité minimale en base:' . $hum_min . ' alerte humidité precedente:' . $old_Hummin);
                 if ($moisture < $hum_min) {
