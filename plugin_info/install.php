@@ -100,13 +100,18 @@ function MiFlora_update() {
             log::add('MiFlora', 'info', '$antenneItem-Install: '.$eqLogic->getHumanName(false, false) . ' : ' .$antenne);
         }
 
-        if ($eqLogic->getConfiguration('battery_danger_threshold') == "") {
-            $eqLogic->setConfiguration('battery_danger_threshold', '10');
-            log::add('MiFlora', 'info', 'battery_danger_threshold-Install: 10');
+
+        if (config::byKey('battery::danger', 'core') == '') { // Prio a la config globale
+            if ($eqLogic->getConfiguration('battery_danger_threshold') == "") {
+                $eqLogic->setConfiguration('battery_danger_threshold', '10');
+                log::add('MiFlora', 'info', 'battery_danger_threshold-Install: 10');
+            }
         }
-        if ($eqLogic->getConfiguration('battery_warning_threshold') == "") {
-            $eqLogic->setConfiguration('battery_warning_threshold', '15');
-            log::add('MiFlora', 'info', 'battery_warning_threshold-Install: 15');
+        if(config::byKey('battery::warning', 'core') == '') {
+            if ($eqLogic->getConfiguration('battery_warning_threshold') == "") {
+                $eqLogic->setConfiguration('battery_warning_threshold', '15');
+                log::add('MiFlora', 'info', 'battery_warning_threshold-Install: 15');
+            }
         }
         if ($eqLogic->getConfiguration('devicetype') == "") {
             $eqLogic->setConfiguration('devicetype', 'MiFlora');

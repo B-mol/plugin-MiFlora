@@ -66,7 +66,7 @@ class MiFlora extends eqLogic
         $frequenceItemMin = 1000;
         foreach (eqLogic::byType('MiFlora', true) as $mi_flora) {
             $frequenceItem = MiFlora::getFrequenceItem($mi_flora);
-			if ($status = $mi_flora->getstatus('OK') == 0 ){
+			if ($status = $mi_flora->getStatus('OK') == 0 ){
 			// force check si erreur de collete  precedente
 				return 1 ;
 			}
@@ -304,13 +304,20 @@ class MiFlora extends eqLogic
 
             if ($resultStatic == true) {
                 $mi_flora->updateStaticData($macAdd, $battery, $FirmwareVersion, $MiFloraName);
-              //TODO: check standard threshold instead of MiFlora ones
-                if($mi_flora->getConfiguration('battery_danger_threshold') == '') {
-                    if ($battery < $mi_flora->getConfiguration('battery_danger_threshold')) {
-                        log::add('MiFlora', 'error', 'Error: Batterie faible - ' . $battery . ' ' . $mi_flora->getHumanName(false, false));
+                if (config::byKey('battery::danger', 'core') != '') {
+                    log::add('MiFlora', 'error', 'Global Battery setting:'. config::byKey('battery::danger', 'core'));
+                    if ($mi_flora->getConfiguration('battery_danger_threshold') != '') {
+                        if ($battery < $mi_flora->getConfiguration('battery_danger_threshold')) {
+                            log::add('MiFlora', 'error', 'Error: Batterie faible - ' . $battery . ' ' . $mi_flora->getHumanName(false, false));
 
-                    } elseif ($battery < $mi_flora->getConfiguration('battery_warning_threshold')) {
-                        log::add('MiFlora', 'error', 'Warning: Batterie faible - ' . $battery . ' ' . $mi_flora->getHumanName(false, false));
+                        }
+                    }
+                }
+                if(config::byKey('battery::warning', 'core') != '') {
+                    if ($mi_flora->getConfiguration('battery_warning_threshold') != '') {
+                        if ($battery < $mi_flora->getConfiguration('battery_warning_threshold')) {
+                            log::add('MiFlora', 'error', 'Warning: Batterie faible - ' . $battery . ' ' . $mi_flora->getHumanName(false, false));
+                        }
                     }
                 }
             } else{
@@ -401,11 +408,11 @@ class MiFlora extends eqLogic
             $mi_flora->updateJeedom($macAdd, $temperature, $moisture, $fertility, $lux );
 
             // regarde si humidité minimum
-            $old_Hummin = $mi_flora->getstatus('HumMin') ;
+            $old_Hummin = $mi_flora->getStatus('HumMin') ;
 
             $hum_min = $mi_flora->getConfiguration ('HumMin');
             if ($hum_min != 0) {
-                log::add('MiFlora', 'debug', 'humidité minimale en base ' . $hum_min . 'humidité precedente ' . $old_Hummin);
+                log::add('MiFlora', 'debug', 'humidité minimale en base:' . $hum_min . ' alerte humidité precedente:' . $old_Hummin);
                 if ($moisture < $hum_min) {
                     if ($old_Hummin != 1) {   // seulement si nouvelle valeur
                         $mi_flora->setStatus('HumMin', 1);
@@ -521,8 +528,12 @@ class MiFlora extends eqLogic
         $this->setConfiguration('firmware_version', '');
         $this->setConfiguration('plant_name', '');
         $this->setConfiguration('frequence', '0');
-        $this->setConfiguration('battery_danger_threshold','10');
-        $this->setConfiguration('battery_warning_threshold','15');
+        if (config::byKey('battery::danger', 'core') == '') {
+            $this->setConfiguration('battery_danger_threshold', '10');
+        }
+        if(config::byKey('battery::warning', 'core') == ''){
+            $this->setConfiguration('battery_warning_threshold', '15');
+        }
         $this->setConfiguration('real_antenna', 'local');
 
 
