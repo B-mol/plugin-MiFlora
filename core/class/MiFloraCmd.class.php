@@ -16,8 +16,7 @@
  * along with Jeedom. If not, see <http://www.gnu.org/licenses/>.
  */
 
-/* * ***************************Includes********************************* */
-require_once dirname(__FILE__) . '/../../../../core/php/core.inc.php';
+require_once __DIR__ . '/../../../../core/php/core.inc.php';
 
 class MiFloraCmd extends cmd
 {
@@ -29,7 +28,8 @@ class MiFloraCmd extends cmd
      */
 
     // public function execute(array $_options = null)
-    public function execute($_options = array()) {
+    public function execute($_options = array())
+    {
         log::add('MiFlora', 'info', 'Commande recue : ' . $_options['message']);
         $eqLogic = $this->getEqLogic();
         MiFlora::sendCommand($eqLogic->getId(), $this->getLogicalId(), $_options['message']);
